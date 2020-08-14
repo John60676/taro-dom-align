@@ -1,4 +1,4 @@
-# taro-dom-align <a href="https://www.npmjs.com/package/taro-dom-align"><img src="https://badge.fury.io/js/taro-dom-align.svg" alt="NPM Version"></a> <img src="https://badgen.net/github/license/John60676/taro-dom-align" alt="License">
+# taro-dom-align <a href="https://www.npmjs.com/package/taro-dom-align"><img src="https://badge.fury.io/js/taro-dom-align.svg" alt="NPM Version"></a> <img src="https://badgen.net/packagephobia/publish/taro-dom-align" alt="Size"> <img src="https://badgen.net/npm/dt/taro-dom-align" alt="Download">  <img src="https://badgen.net/github/license/john60676/taro-dom-align" alt="License">
 
 在 [Taro](https://github.com/NervJS/taro) 中使用 [dom-align](https://github.com/yiminghe/dom-align)，部分代码的实现参考了 [dom-align](https://github.com/yiminghe/dom-align)。
 
