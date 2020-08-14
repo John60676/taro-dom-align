@@ -1,0 +1,61 @@
+{
+  "name": "taro-dom-align",
+  "version": "0.0.1",
+  "description": "taro dom-align",
+  "author": "John60676",
+  "license": "MIT",
+  "homepage": "https://github.com/John60676/taro-dom-align",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/John60676/taro-dom-align"
+  },
+  "bugs": {
+    "url": "https://github.com/John60676/taro-dom-align/issues"
+  },
+  "keywords": [
+    "taro",
+    "taro2",
+    "hooks",
+    "react",
+    "reactjs",
+    "wx",
+    "weixin",
+    "wechat",
+    "weapp",
+    "wechat-mini-program",
+    "javascript",
+    "typescript",
+    "dom-align",
+    "align"
+  ],
+  "main": "dist/index.js",
+  "source": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "release": "npm run build && np --no-tests",
+    "clean": "rimraf -rf dist/*"
+  },
+  "devDependencies": {
+    "@tarojs/taro": "2.2.13",
+    "@types/lodash-es": "^4.17.3",
+    "@types/react": "^16.9.46",
+    "np": "^6.4.0",
+    "rimraf": "^3.0.2",
+    "tslib": "^2.0.1",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.15"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "semi": true,
+    "trailingComma": "all",
+    "proseWrap": "never",
+    "jsxSingleQuote": true
+  }
+}
