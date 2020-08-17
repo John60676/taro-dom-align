@@ -35,7 +35,7 @@ const [sourceStyle, doAlign, setSourceStyle] = useDomAlign('.source', '.target',
     <thead>
     <tr>
         <th style="width: 100px;">name</th>
-        <th style="width: 50px;">type</th>
+        <th style="width: 150px;">type</th>
         <th>description</th>
     </tr>
     </thead>
@@ -46,7 +46,19 @@ const [sourceStyle, doAlign, setSourceStyle] = useDomAlign('.source', '.target',
           <td>移动 source 节点的点以与 target 节点的点对齐, 例如 ['tl','br'],
           将 source 节点的左上角 对齐 target 节点的右下角.
           point 的值可以为 't'(top), 'b'(bottom), 'c'(center), 'l'(left), 'r'(right)
-      </td>
+          </td>
+      </tr>
+      <tr>
+          <td>offset</td>
+          <td>Number[2] | String[2]</td>
+          <td>通过 offset 字段 [x, y]，使得 source 节点位置偏移，如果 x,y 传入百分比，则按 source 节点的宽高进行计算实际偏移值
+          </td>
+      </tr>
+      <tr>
+          <td>targetOffset</td>
+          <td>Number[2] | String[2]</td>
+          <td>通过 offset 字段 [x, y]，使得 target 节点位置偏移，如果 x,y 传入百分比，则按 target 节点的宽高进行计算实际偏移值
+          </td>
       </tr>
     </tbody>
 </table>
@@ -59,7 +71,9 @@ import useDomAlign from 'taro-dom-align';
 
 function Page (){
   const [sourceStyle, doAlign, setSourceStyle] = useDomAlign('.source', '.target', {
-    points: ['tl', 'br'],
+    points: ['tl', 'br'],   // source 节点的 top-left(左上角) 对齐 target 节点的 bottom-right(右下角)
+    offset: ['10%', '20%'], // 使得 source 节点的X轴偏移自身宽度的10%，Y轴偏移自身高度的20%
+    targetOffset: [10, 20], // 使得 target 节点的X轴偏移10px，Y轴偏移20px
   });
 
   const handleClick = () => {
@@ -88,8 +102,8 @@ function Page (){
 
 ## TODO
 
- - [ ] 设置 source 的偏移值，与原版的 alignConfig offset 效果一致
- - [ ] 设置 target 的偏移值，与原版的 alignConfig -- targetOffset
+ - [x] 设置 source 的偏移值，与原版的 alignConfig offset 效果一致
+ - [x] 设置 target 的偏移值，与原版的 alignConfig targetOffset
  - [ ] 支持 taro3
  - [ ] 支持 taro1
  - [ ] 多端？
