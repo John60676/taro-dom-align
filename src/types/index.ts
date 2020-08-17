@@ -10,14 +10,22 @@ export type OffsetType = {
   top: number;
 };
 
+export type DomAlignOptionOffsetType = string | number;
+
 export type DomAlignOptionType = {
   points: [AlignPointsType, AlignPointsType];
-  offset?: [number, number];
-  targetOffset?: [number, number];
+  offset?: [DomAlignOptionOffsetType, DomAlignOptionOffsetType];
+  targetOffset?: [DomAlignOptionOffsetType, DomAlignOptionOffsetType];
 };
 
 export interface GetElFuturePosType {
-  (sourceRegion: RegionType, targetRegion: RegionType, option: DomAlignOptionType): OffsetType;
+  (
+    sourceRegion: RegionType,
+    targetRegion: RegionType,
+    points: DomAlignOptionType['points'],
+    offset: DomAlignOptionType['offset'],
+    targetOffset: DomAlignOptionType['targetOffset'],
+  ): OffsetType;
 }
 
 export interface GetAlignOffsetType {

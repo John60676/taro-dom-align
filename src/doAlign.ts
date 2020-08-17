@@ -4,6 +4,7 @@ import swapDisplayToHidden from './swapDisplayToHidden';
 import getRegion from './getRegion';
 import getElFuturePos from './getElFuturePos';
 import setLeftTop from './setLeftTop';
+import { normalizeOffset } from './utils';
 import { DoAlignType } from './types';
 
 const doAlign: DoAlignType = (sourceClsName, targetClsName, options, sourceStyle, setSourceStyle) => {
@@ -14,7 +15,10 @@ const doAlign: DoAlignType = (sourceClsName, targetClsName, options, sourceStyle
     Taro.nextTick(async () => {
       const sourceRegion = await getRegion(sourceClsName);
       const targetRegion = await getRegion(targetClsName);
-      const positionRes = getElFuturePos(sourceRegion, targetRegion, options);
+      const { points, offset = [0, 0], targetOffset = [0, 0] } = options;
+      normalizeOffset(offset, sourceRegion);
+      normalizeOffset(targetOffset, targetRegion);
+      const positionRes = getElFuturePos(sourceRegion, targetRegion, points, offset, targetOffset);
       const result = setLeftTop(sourceRegion, sourceStyle, positionRes);
       const oldStyle = cloneDeep(sourceStyle);
       sourceStyle.display = 'block';
