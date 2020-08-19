@@ -6,7 +6,7 @@ const swapDisplayToHidden: SwapDisplayToHiddenType = async (style, sourceClsName
   const newStyle = cloneDeep(style);
   const sourceRegion = await getRegion(sourceClsName, scope);
   if (sourceRegion.width === 0 || style.display === 'none') {
-    newStyle.display = 'block';
+    newStyle.display = 'inline-block';
     newStyle.visibility = 'hidden';
     return newStyle;
   }

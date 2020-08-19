@@ -19,7 +19,7 @@ const doAlign: DoAlignType = (sourceClsName, targetClsName, options, sourceStyle
       normalizeOffset(targetOffset, targetRegion);
       const result = getElFuturePos(sourceRegion, targetRegion, points, offset, targetOffset);
       const oldStyle = cloneDeep(sourceStyle);
-      sourceStyle.display = 'block';
+      sourceStyle.display = 'inline-block';
       sourceStyle.left = result.left + 'px';
       sourceStyle.top = result.top + 'px';
       // 如果修改前和修改后的样式一致，则不做更新处理
