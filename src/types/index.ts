@@ -37,10 +37,6 @@ export interface SwapDisplayToHiddenType {
   (style: CSSProperties, sourceClsName: string, scope: scopeType): Promise<CSSProperties>;
 }
 
-export interface SetLeftTopType {
-  (sourceRegion: RegionType, sourceStyle: CSSProperties, offset: OffsetType);
-}
-
 export interface GetRegionType {
   (elementClsName: string, scope: scopeType): Promise<RegionType>;
 }
