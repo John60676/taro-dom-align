@@ -10,6 +10,7 @@ export type OffsetType = {
   top: number;
 };
 
+export type scopeType = any;
 export type DomAlignOptionOffsetType = string | number;
 
 export type DomAlignOptionType = {
@@ -33,7 +34,7 @@ export interface GetAlignOffsetType {
 }
 
 export interface SwapDisplayToHiddenType {
-  (style: CSSProperties, sourceClsName: string): Promise<CSSProperties>;
+  (style: CSSProperties, sourceClsName: string, scope: scopeType): Promise<CSSProperties>;
 }
 
 export interface SetLeftTopType {
@@ -41,7 +42,7 @@ export interface SetLeftTopType {
 }
 
 export interface GetRegionType {
-  (elementClsName: string): Promise<RegionType>;
+  (elementClsName: string, scope: scopeType): Promise<RegionType>;
 }
 
 export interface DoAlignType {
@@ -51,6 +52,7 @@ export interface DoAlignType {
     options: DomAlignOptionType,
     sourceStyle: CSSProperties,
     setSourceStyle: (style: CSSProperties) => void,
+    scope: scopeType,
   ): () => void;
 }
 

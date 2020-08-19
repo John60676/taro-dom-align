@@ -7,14 +7,14 @@ import setLeftTop from './setLeftTop';
 import { normalizeOffset } from './utils';
 import { DoAlignType } from './types';
 
-const doAlign: DoAlignType = (sourceClsName, targetClsName, options, sourceStyle, setSourceStyle) => {
+const doAlign: DoAlignType = (sourceClsName, targetClsName, options, sourceStyle, setSourceStyle, scope) => {
   const Taro = getTaro();
   return async () => {
-    const newStyle = await swapDisplayToHidden(sourceStyle, sourceClsName);
+    const newStyle = await swapDisplayToHidden(sourceStyle, sourceClsName, scope);
     isEqual(sourceStyle, newStyle) || setSourceStyle(newStyle);
     Taro.nextTick(async () => {
-      const sourceRegion = await getRegion(sourceClsName);
-      const targetRegion = await getRegion(targetClsName);
+      const sourceRegion = await getRegion(sourceClsName, scope);
+      const targetRegion = await getRegion(targetClsName, scope);
       const { points, offset = [0, 0], targetOffset = [0, 0] } = options;
       normalizeOffset(offset, sourceRegion);
       normalizeOffset(targetOffset, targetRegion);
