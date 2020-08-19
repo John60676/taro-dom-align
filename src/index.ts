@@ -5,7 +5,7 @@ import doAlignFunc from './doAlign';
 
 const useDomAlign: UseDomAlignType = (sourceClsName, targetClsName, options) => {
   const scope = useScope();
-  const [sourceStyle, setSourceStyle] = useState<CSSProperties>({ position: 'relative', display: 'none' });
+  const [sourceStyle, setSourceStyle] = useState<CSSProperties>({ position: 'absolute', display: 'none' });
   const doAlign = doAlignFunc(sourceClsName, targetClsName, options, sourceStyle, setSourceStyle, scope);
 
   const setStyle = (style: CSSProperties) => {
