@@ -46,7 +46,9 @@ export interface DoAlignType {
     sourceCls: string,
     targetCls: string,
     options: DomAlignOptionType,
-    sourceStyle: CSSProperties,
+    sourceStyle: {
+      current: CSSProperties;
+    },
     setSourceStyle: (style: CSSProperties) => void,
     scope: scopeType,
   ): () => void;
