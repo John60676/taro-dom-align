@@ -4,7 +4,7 @@ import { RegionType, GetRegionType } from './types';
 
 const getRegion: GetRegionType = (el, scope) => {
   const Taro = getTaro();
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     return Taro.createSelectorQuery()
       .in(scope)
       .select(el)
