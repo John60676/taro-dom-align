@@ -1,4 +1,5 @@
-import { isEqual, cloneDeep } from 'lodash-es';
+import cloneDeep from 'lodash-es/cloneDeep';
+import isEqual from 'lodash-es/isEqual';
 import getTaro from './getTaro';
 import swapDisplayToHidden from './swapDisplayToHidden';
 import getRegion from './getRegion';

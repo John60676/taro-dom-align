@@ -1,4 +1,4 @@
-import { cloneDeep } from 'lodash-es';
+import cloneDeep from 'lodash-es/cloneDeep';
 import getRegion from './getRegion';
 import { SwapDisplayToHiddenType } from './types';
 
