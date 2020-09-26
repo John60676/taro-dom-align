@@ -60,6 +60,12 @@ const [sourceStyle, doAlign, setSourceStyle] = useDomAlign('.source', '.target',
           <td>通过 offset 字段 [x, y]，使得 target 节点位置偏移，如果 x,y 传入百分比，则按 target 节点的宽高进行计算实际偏移值
           </td>
       </tr>
+      <tr>
+          <td>hasPosition</td>
+          <td>Boolean</td>
+          <td>当 target 的祖先元素含有 position 不是 static 的定位时，要将该值设置为 `true`，否则会出现定位错误的问题
+          </td>
+      </tr>
     </tbody>
 </table>
 
@@ -99,14 +105,14 @@ function Page (){
   );
 };
 ```
+## ⚠ 注意
 
+ - 由于小程序的限制，target元素 **不能设置position定位**，否则将会导致target的定位计算出现错误
+  
 ## TODO
 
- - [x] 设置 source 的偏移值，与原版的 alignConfig offset 效果一致
- - [x] 设置 target 的偏移值，与原版的 alignConfig targetOffset
  - [ ] 支持 taro3
  - [ ] 支持 taro1
- - [ ] 多端？
 
 
 ## 许可
