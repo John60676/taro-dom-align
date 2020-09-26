@@ -17,6 +17,7 @@ export type DomAlignOptionType = {
   points: [AlignPointsType, AlignPointsType];
   offset?: [DomAlignOptionOffsetType, DomAlignOptionOffsetType];
   targetOffset?: [DomAlignOptionOffsetType, DomAlignOptionOffsetType];
+  hasFixed?: boolean;
 };
 
 export interface GetElFuturePosType {
@@ -34,11 +35,11 @@ export interface GetAlignOffsetType {
 }
 
 export interface SwapDisplayToHiddenType {
-  (style: CSSProperties, sourceClsName: string, scope: scopeType): Promise<CSSProperties>;
+  (style: CSSProperties, sourceClsName: string, scope: scopeType, options: DomAlignOptionType): Promise<CSSProperties>;
 }
 
 export interface GetRegionType {
-  (elementClsName: string, scope: scopeType): Promise<RegionType>;
+  (elementClsName: string, scope: scopeType, options: DomAlignOptionType): Promise<RegionType>;
 }
 
 export interface DoAlignType {

@@ -2,7 +2,7 @@ import getTaro from './getTaro';
 import getScroll from './getScroll';
 import { RegionType, GetRegionType } from './types';
 
-const getRegion: GetRegionType = (el, scope) => {
+const getRegion: GetRegionType = (el, scope, options) => {
   const Taro = getTaro();
   return new Promise(resolve => {
     return Taro.createSelectorQuery()
@@ -12,9 +12,11 @@ const getRegion: GetRegionType = (el, scope) => {
       .exec(async (res: RegionType[]) => {
         const data = res[0];
         if (data) {
-          const scrollData = await getScroll();
-          data.left += scrollData.scrollLeft;
-          data.top += scrollData.scrollTop;
+          if (!options?.hasFixed) {
+            const scrollData = await getScroll();
+            data.left += scrollData.scrollLeft;
+            data.top += scrollData.scrollTop;
+          }
           return resolve(data);
         }
         return resolve({

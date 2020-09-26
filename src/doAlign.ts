@@ -11,11 +11,11 @@ const doAlign: DoAlignType = (sourceClsName, targetClsName, options, sourceStyle
   const Taro = getTaro();
   return async () => {
     const sourceStyle = sourceStyleRef.current;
-    const newStyle = await swapDisplayToHidden(sourceStyle, sourceClsName, scope);
+    const newStyle = await swapDisplayToHidden(sourceStyle, sourceClsName, scope, options);
     isEqual(sourceStyle, newStyle) || setSourceStyle(newStyle);
     Taro.nextTick(async () => {
-      const sourceRegion = await getRegion(sourceClsName, scope);
-      const targetRegion = await getRegion(targetClsName, scope);
+      const sourceRegion = await getRegion(sourceClsName, scope, options);
+      const targetRegion = await getRegion(targetClsName, scope, options);
       const { points, offset = [0, 0], targetOffset = [0, 0] } = options;
       normalizeOffset(offset, sourceRegion);
       normalizeOffset(targetOffset, targetRegion);
