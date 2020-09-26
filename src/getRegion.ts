@@ -12,7 +12,12 @@ const getRegion: GetRegionType = (el, scope, options) => {
       .exec(async (res: RegionType[]) => {
         const data = res[0];
         if (data) {
-          if (!options?.hasFixed) {
+          // 当 hasPosition 为 true 时，假定target的位置为祖先元素的位置
+          // 后面如果小程序开放了获取祖先元素的样式时，该地方可以重写
+          if (options?.hasPosition) {
+            data.left = 0;
+            data.top = 0;
+          } else {
             const scrollData = await getScroll();
             data.left += scrollData.scrollLeft;
             data.top += scrollData.scrollTop;

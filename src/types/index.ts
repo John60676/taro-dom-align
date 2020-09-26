@@ -17,7 +17,7 @@ export type DomAlignOptionType = {
   points: [AlignPointsType, AlignPointsType];
   offset?: [DomAlignOptionOffsetType, DomAlignOptionOffsetType];
   targetOffset?: [DomAlignOptionOffsetType, DomAlignOptionOffsetType];
-  hasFixed?: boolean;
+  hasPosition?: boolean;
 };
 
 export interface GetElFuturePosType {
